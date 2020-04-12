@@ -224,14 +224,8 @@ const logs = (req, res, next) => {
 	fs.readFile(`${__dirname}/logs.txt`, "utf8", (err, data) => {
 		if (err) throw err;
 		res.type("text/plain");
-		const fileName = __dirname + "/logs.txt";
-		res.status(200).sendFile(fileName, {}, function (err) {
-			if (err) {
-				next(err);
-			} else {
-				keepMyLog(req, 200);
-			}
-		});
+		keepMyLog(req, 200);
+		res.status(200).send(data);
 	});
 };
 
