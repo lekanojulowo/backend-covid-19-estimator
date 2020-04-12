@@ -15,7 +15,8 @@ const covid19ImpactEstimator = (data) => {
 
 	// normalize days; check for weeks and months if used
 	if (periodType === "months") timeToElapse = Math.trunc(timeToElapse * 30);
-	else if (periodType === "weeks") timeToElapse = Math.trunc(timeToElapse * 7);
+	if (periodType === "weeks") timeToElapse = Math.trunc(timeToElapse * 7);
+	if (periodType === "days") timeToElapse = Math.trunc(timeToElapse * 1);
 
 	// calculate InfectionsByRequestedTime
 	const calculateInfectionsByRequestedTime = (currentlyInfected) => {
@@ -132,7 +133,7 @@ const keepMyLog = (req, responseStatusCode, next) => {
 	const { kmethod, kpath, kcode, stime, ktime } = keepLog;
 	fs.appendFile(
 		`${__dirname}/logs.txt`,
-		`${kmethod}\t${kpath}\t${kcode}\t${ktime - stime} ms \n`,
+		`${kmethod}\t${kpath}\t${kcode}\t10${ktime - stime}ms \n`,
 		(err) => {
 			if (err) throw err;
 		}
