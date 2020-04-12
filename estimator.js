@@ -178,6 +178,7 @@ const dataXml = (req, res, next) => {
 		timeToElapse,
 	} = data;
 	const xml = `
+<?xml version="1.0" encoding="UTF-8" ?>
 <root>
   <data>
     <region> 
@@ -185,7 +186,7 @@ const dataXml = (req, res, next) => {
       <avgAge>${avgAge}</avgAge>
       <avgDailyIncomeInUSD>${avgDailyIncomeInUSD}</avgDailyIncomeInUSD>
       <avgDailyIncomePopulation>${avgDailyIncomePopulation}</avgDailyIncomePopulation>
-    <region>
+    </region>
     <periodType>${periodType}</periodType>
     <timeToElapse>${timeToElapse}</timeToElapse>
     <reportedCases>${reportedCases}</reportedCases>
