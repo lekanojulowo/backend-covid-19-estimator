@@ -222,7 +222,7 @@ const dataXml = (req, res, next) => {
 const logs = (req, res, next) => {
 	fs.readFile(`${__dirname}/logs.txt`, "utf8", (err, data) => {
 		if (err) throw err;
-		res.set("Content-Type", "text/plain");
+		res.type("text/plain");
 		keepMyLog(req, 200);
 		res.status(200).send(data);
 	});
