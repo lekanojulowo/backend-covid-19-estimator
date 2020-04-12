@@ -133,7 +133,7 @@ const keepMyLog = (req, responseStatusCode, next) => {
 	const { kmethod, kpath, kcode, stime, ktime } = keepLog;
 	fs.appendFile(
 		`${__dirname}/logs.txt`,
-		`${kmethod}\t${kpath}\t${kcode}\t10${ktime - stime}ms \n`,
+		`${kmethod}\t\t${kpath}\t\t${kcode}\t\t10${ktime - stime}ms\n`,
 		(err) => {
 			if (err) throw err;
 		}
