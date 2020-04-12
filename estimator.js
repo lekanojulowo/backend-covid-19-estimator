@@ -212,7 +212,7 @@ const dataXml = (req, res, next) => {
   </severeImpact>
 </root>
   `;
-	res.set("Content-Type", "text/xml");
+	res.type("application/xml");
 
 	keepMyLog(req, 200);
 	res.status(200).send(xml);
